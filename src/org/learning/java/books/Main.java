@@ -25,7 +25,7 @@ public class Main {
                     System.out.println("Inserisci editore: ");
                     String publisher = scanner.nextLine();
                     book = new Book(title, numberPage, author, publisher);
-//                    System.out.println(book.toString());
+
                     flag = true;
                 } catch (IllegalArgumentException e) {
                     System.out.println("Inserisci un titolo, autore ed editore validi");
