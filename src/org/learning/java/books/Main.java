@@ -5,9 +5,18 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Quanti libri da inserire?");
 
-        int numberBooks = Integer.parseInt(scanner.nextLine());
+        int numberBooks;
+        do {
+            System.out.println("Quanti libri da inserire?");
+            numberBooks = Integer.parseInt(scanner.nextLine());
+            if (numberBooks <= 0) {
+                System.out.println("Inserire un numero di libri valido (maggiore di zero).");
+            }
+        } while (numberBooks <= 0);
+
+
+
         Book[] books = new Book[numberBooks];
 
         for (int i = 0; i < numberBooks; i++) {
@@ -28,7 +37,7 @@ public class Main {
 
                     flag = true;
                 } catch (IllegalArgumentException e) {
-                    System.out.println("Inserisci un titolo, autore ed editore validi");
+                    System.out.println("Dettagli libro non validi! Riprova");
                 }
 
             } while (!flag);
